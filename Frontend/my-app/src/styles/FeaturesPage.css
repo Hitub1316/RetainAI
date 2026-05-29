@@ -1,10 +1,3 @@
-/* =====================
-   FeaturesPage.css
-   ===================== */
-
-/* ── Google Material Symbols ── */
-@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 .material-symbols-outlined {
   font-family: "Material Symbols Outlined";
@@ -56,9 +49,7 @@
   padding: 80px 24px;
 }
 
-/* ══════════════════════════════
-   HERO
-══════════════════════════════ */
+
 .fp-hero {
   position: relative;
   padding: 80px 24px;
@@ -183,9 +174,6 @@
   background: rgba(53, 37, 205, 0.05);
 }
 
-/* ══════════════════════════════
-   FEATURES GRID
-══════════════════════════════ */
 .fp-features-section {
   background: #ffffff;
 }
@@ -265,9 +253,7 @@
   margin: 0;
 }
 
-/* ══════════════════════════════
-   HIGHLIGHT
-══════════════════════════════ */
+
 .fp-highlight-section {
   background: var(--surface-container-low);
 }
@@ -404,9 +390,6 @@
   margin: 0;
 }
 
-/* ══════════════════════════════
-   BENEFITS
-══════════════════════════════ */
 .fp-benefits-section {
   background: #ffffff;
 }
@@ -492,8 +475,7 @@
 .fp-cta-glow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at top right, rgba(255,255,255,0.12), transparent 60%);
-  pointer-events: none;
+  background: radial-gradient(circle at top right, rgba(255,255,255,0.1), transparent 70%);  pointer-events: none;
 }
 
 .fp-cta-title {

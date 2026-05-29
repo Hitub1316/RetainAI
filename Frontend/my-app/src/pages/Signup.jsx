@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/SignUp.css";
 import signup_growthimg from "../assets/signup_growthimg.png";
 
@@ -20,12 +21,10 @@ export default function SignUp() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted:", form);
+    // TODO: Add actual signup logic later
   };
 
   return (
-    <>
-
-      {/* Main Content */}
       <main className="main">
         <div className="layout">
           {/* Branding Side */}
@@ -41,9 +40,9 @@ export default function SignUp() {
             </p>
             <div className="branding__image-wrap">
               <img
-                className="branding__image"
-                src={signup_growthimg}
-                alt="growth"
+                  className="branding__image"
+                  src={signup_growthimg}
+                  alt="growth illustration"
               />
             </div>
           </div>
@@ -58,67 +57,63 @@ export default function SignUp() {
 
               <form className="form" onSubmit={handleSubmit}>
                 <div className="form__row">
-                  {/* Full Name */}
                   <div className="form__field">
                     <label className="form__label" htmlFor="name">Full Name</label>
                     <input
-                      className="form__input"
-                      id="name"
-                      type="text"
-                      placeholder="John Doe"
-                      value={form.name}
-                      onChange={handleChange}
+                        className="form__input"
+                        id="name"
+                        type="text"
+                        placeholder="John Doe"
+                        value={form.name}
+                        onChange={handleChange}
                     />
                   </div>
-                  {/* Work Email */}
+
                   <div className="form__field">
                     <label className="form__label" htmlFor="email">Work Email</label>
                     <input
-                      className="form__input"
-                      id="email"
-                      type="email"
-                      placeholder="name@company.com"
-                      value={form.email}
-                      onChange={handleChange}
+                        className="form__input"
+                        id="email"
+                        type="email"
+                        placeholder="name@company.com"
+                        value={form.email}
+                        onChange={handleChange}
                     />
                   </div>
                 </div>
 
-                {/* Password */}
                 <div className="form__field">
                   <label className="form__label" htmlFor="password">Password</label>
                   <input
-                    className="form__input"
-                    id="password"
-                    type="password"
-                    placeholder="••••••••"
-                    value={form.password}
-                    onChange={handleChange}
+                      className="form__input"
+                      id="password"
+                      type="password"
+                      placeholder="••••••••"
+                      value={form.password}
+                      onChange={handleChange}
                   />
                 </div>
 
-                {/* Company Name */}
                 <div className="form__field">
                   <label className="form__label" htmlFor="company">Company Name</label>
                   <input
-                    className="form__input"
-                    id="company"
-                    type="text"
-                    placeholder="Acme Inc."
-                    value={form.company}
-                    onChange={handleChange}
+                      className="form__input"
+                      id="company"
+                      type="text"
+                      placeholder="Acme Inc."
+                      value={form.company}
+                      onChange={handleChange}
                   />
                 </div>
 
                 <div className="form__row">
-                  {/* Company Type */}
                   <div className="form__field">
                     <label className="form__label" htmlFor="type">Company Type</label>
                     <select
-                      className="form__input form__select"
-                      id="type"
-                      value={form.type}
-                      onChange={handleChange}
+                        className="form__input form__select"
+                        id="type"
+                        value={form.type}
+                        onChange={handleChange}
                     >
                       <option value="" disabled>Select type</option>
                       <option>Enterprise</option>
@@ -127,14 +122,14 @@ export default function SignUp() {
                       <option>Startup</option>
                     </select>
                   </div>
-                  {/* User Role */}
+
                   <div className="form__field">
                     <label className="form__label" htmlFor="role">User Role</label>
                     <select
-                      className="form__input form__select"
-                      id="role"
-                      value={form.role}
-                      onChange={handleChange}
+                        className="form__input form__select"
+                        id="role"
+                        value={form.role}
+                        onChange={handleChange}
                     >
                       <option value="" disabled>Select role</option>
                       <option>Executive</option>
@@ -145,38 +140,33 @@ export default function SignUp() {
                   </div>
                 </div>
 
-                {/* Company Registration ID */}
                 <div className="form__field">
                   <label className="form__label" htmlFor="regId">Company Registration ID</label>
                   <input
-                    className="form__input"
-                    id="regId"
-                    type="text"
-                    placeholder="REG-123456789"
-                    value={form.regId}
-                    onChange={handleChange}
+                      className="form__input"
+                      id="regId"
+                      type="text"
+                      placeholder="REG-123456789"
+                      value={form.regId}
+                      onChange={handleChange}
                   />
                 </div>
 
-                {/* Submit */}
                 <button className="form__submit" type="submit">
                   Create Account
                 </button>
               </form>
 
-              <div className="form-card__footer">
-                <p>
-                  Already have an account?{" "}
-                  <a href="#" className="form-card__login-link">Log in</a>
-                </p>
-              </div>
+              {/* Login Link */}
+              <p className="form-card__footer">
+                Already have an account?{" "}
+                <Link to="/login" className="form-card__login-link">
+                  Log in
+                </Link>
+              </p>
             </div>
           </div>
         </div>
       </main>
-
-      {/* Footer */}
-      
-    </>
   );
 }
