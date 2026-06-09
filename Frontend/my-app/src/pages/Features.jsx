@@ -66,10 +66,10 @@ export default function FeaturesPage() {
             </p>
             <div className="fp-hero-actions">
               <Link to="/signup" className="fp-btn-primary">Get Started</Link>
-              <button className="fp-btn-ghost">
-                <span className="material-symbols-outlined">play_circle</span>
-                Watch Demo
-              </button>
+              {/*<button className="fp-btn-ghost">*/}
+              {/*  <span className="material-symbols-outlined">play_circle</span>*/}
+              {/*  Watch Demo*/}
+              {/*</button>*/}
             </div>
           </div>
         </section>

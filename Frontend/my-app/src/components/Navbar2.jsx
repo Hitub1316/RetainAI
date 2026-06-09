@@ -1,47 +1,51 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
-export default function Navbar2() {
+export default function Navbar2({ children }) {
   const navigate = useNavigate();
   const location = useLocation();
 
   return (
-      <header style={styles.navbar}>
-        <nav style={styles.inner}>
+      <>
+        <header style={styles.navbar}>
+          <nav style={styles.inner}>
 
-          {/* LEFT */}
-          <div style={styles.left}>
-          <span style={styles.logo} onClick={() => navigate("/dashboard")}>
-            RetainAI
-          </span>
-
-            <div style={styles.links}>
-            <span
-                style={location.pathname === "/dashboard" ? styles.activeLink : styles.link}
-                onClick={() => navigate("/dashboard")}
-            >
-              Dashboard
+            {/* LEFT */}
+            <div style={styles.left}>
+            <span style={styles.logo} onClick={() => navigate("/dashboard")}>
+              RetainAI
             </span>
 
+              <div style={styles.links}>
               <span
-                  style={location.pathname === "/report" ? styles.activeLink : styles.link}
-                  onClick={() => navigate("/report")}
+                  style={location.pathname === "/dashboard" ? styles.activeLink : styles.link}
+                  onClick={() => navigate("/dashboard")}
               >
-              Report
-            </span>
-            </div>
-          </div>
+                Dashboard
+              </span>
 
-          {/* RIGHT */}
-          <div style={styles.right}>
-            <div style={styles.profileWrap} onClick={() => navigate("/profile")}>
-              <div style={styles.avatar}>U</div>
-              <span style={styles.profileLabel}>My Profile</span>
+                <span
+                    style={location.pathname === "/report" ? styles.activeLink : styles.link}
+                    onClick={() => navigate("/report")}
+                >
+                Report
+              </span>
+              </div>
             </div>
-          </div>
 
-        </nav>
-      </header>
+            {/* RIGHT */}
+            <div style={styles.right}>
+              <div style={styles.profileWrap} onClick={() => navigate("/profile")}>
+                <div style={styles.avatar}>U</div>
+                <span style={styles.profileLabel}>My Profile</span>
+              </div>
+            </div>
+
+          </nav>
+        </header>
+
+        <main>{children}</main>
+      </>
   );
 }
 

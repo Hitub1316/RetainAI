@@ -1,9 +1,12 @@
-FROM eclipse-temurin:17-jdk
+FROM python:3.10-slim
 
 WORKDIR /app
 
-COPY agent/target/*.jar app.jar
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 8080
+COPY . .
 
-ENTRYPOINT ["java", "-jar", "app.jar"]Q
+EXPOSE 5000
+
+CMD ["python", "agent_api.py"]

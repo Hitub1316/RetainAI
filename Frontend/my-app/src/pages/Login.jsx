@@ -18,13 +18,14 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Login submitted:", form);
-    // TODO: Add real authentication later
+    localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("userEmail", form.email);
     navigate("/home");
   };
 
   const handleDemoLogin = () => {
-    console.log("Demo login clicked");
+    localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("userEmail", "demo@retainai.com");
     navigate("/home");
   };
 
@@ -48,7 +49,6 @@ export default function Login() {
                       className="form__input"
                       id="email"
                       type="email"
-                      // placeholder="name@company.com"
                       value={form.email}
                       onChange={handleChange}
                   />
@@ -64,7 +64,6 @@ export default function Login() {
                       className="form__input"
                       id="password"
                       type="password"
-                      // placeholder="••••••••"
                       value={form.password}
                       onChange={handleChange}
                   />
@@ -93,10 +92,7 @@ export default function Login() {
             </form>
 
             {/* Demo Login Button */}
-            <button
-                className="form__demo-btn"
-                onClick={handleDemoLogin}
-            >
+            <button className="form__demo-btn" onClick={handleDemoLogin}>
               Login without authentication (Demo)
             </button>
 
