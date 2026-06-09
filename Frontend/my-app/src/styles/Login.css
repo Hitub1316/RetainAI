@@ -1,6 +1,4 @@
-/* =========================================
-   CSS Variables / Design Tokens
-   ========================================= */
+
 :root {
   --color-surface: #f8f9ff;
   --color-background: #f8f9ff;
@@ -29,9 +27,7 @@
   --transition: 0.18s ease;
 }
 
-/* =========================================
-   Global Reset & Base
-   ========================================= */
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -68,9 +64,7 @@ button {
   background: none;
 }
 
-/* =========================================
-   Navbar
-   ========================================= */
+
 .navbar {
   position: sticky;
   top: 0;
@@ -158,9 +152,7 @@ button {
   .navbar__links { display: none; }
 }
 
-/* =========================================
-   Main
-   ========================================= */
+
 .main {
   flex: 1;
   display: flex;
@@ -174,9 +166,7 @@ button {
   max-width: 440px;
 }
 
-/* =========================================
-   Login Card
-   ========================================= */
+
 .card {
   background-color: var(--color-surface-container-lowest);
   border-radius: var(--radius-lg);
@@ -206,9 +196,7 @@ button {
   color: var(--color-on-surface-variant);
 }
 
-/* =========================================
-   Form
-   ========================================= */
+
 .form {
   display: flex;
   flex-direction: column;
@@ -241,7 +229,6 @@ button {
   color: var(--color-outline);
   pointer-events: none;
   user-select: none;
-  /* Material Symbols font settings */
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
@@ -267,9 +254,7 @@ button {
   box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
 }
 
-/* =========================================
-   Actions Row
-   ========================================= */
+
 .form__actions {
   display: flex;
   align-items: center;
@@ -309,7 +294,22 @@ button {
 .form__remember:hover .form__remember-label {
   color: var(--color-on-surface);
 }
+.form__demo-btn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 12px;
+  background: #6b7280;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
 
+.form__demo-btn:hover {
+  background: #4b5563;
+}
 .form__forgot {
   font-size: 0.875rem;
   font-weight: 500;
@@ -321,9 +321,7 @@ button {
   text-underline-offset: 4px;
 }
 
-/* =========================================
-   Submit Button
-   ========================================= */
+
 .form__submit {
   width: 100%;
   padding: 1rem;
@@ -345,9 +343,6 @@ button {
   box-shadow: var(--shadow-btn);
 }
 
-/* =========================================
-   Card Footer
-   ========================================= */
 .card__footer {
   margin-top: 2.5rem;
   padding-top: 1.5rem;
@@ -371,9 +366,6 @@ button {
   text-underline-offset: 4px;
 }
 
-/* =========================================
-   Trust Badge
-   ========================================= */
 .trust-badge {
   margin-top: 1.5rem;
   display: flex;

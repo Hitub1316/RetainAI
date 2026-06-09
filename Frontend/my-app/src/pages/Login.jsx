@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/Login.css";
+
 export default function Login() {
+  const navigate = useNavigate();
+
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -14,15 +18,18 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Login submitted:", form);
+    localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("userEmail", form.email);
+    navigate("/home");
+  };
+
+  const handleDemoLogin = () => {
+    localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("userEmail", "demo@retainai.com");
+    navigate("/home");
   };
 
   return (
-    <>
-      {/* Top Nav Bar */}
-     
-
-      {/* Main Content */}
       <main className="main">
         <div className="main__inner">
           {/* Login Card */}
@@ -39,12 +46,11 @@ export default function Login() {
                 <div className="form__input-wrap">
                   <span className="form__icon material-symbols-outlined">mail</span>
                   <input
-                    className="form__input"
-                    id="email"
-                    type="email"
-                    placeholder="name@company.com"
-                    value={form.email}
-                    onChange={handleChange}
+                      className="form__input"
+                      id="email"
+                      type="email"
+                      value={form.email}
+                      onChange={handleChange}
                   />
                 </div>
               </div>
@@ -55,12 +61,11 @@ export default function Login() {
                 <div className="form__input-wrap">
                   <span className="form__icon material-symbols-outlined">lock</span>
                   <input
-                    className="form__input"
-                    id="password"
-                    type="password"
-                    placeholder="••••••••"
-                    value={form.password}
-                    onChange={handleChange}
+                      className="form__input"
+                      id="password"
+                      type="password"
+                      value={form.password}
+                      onChange={handleChange}
                   />
                 </div>
               </div>
@@ -69,15 +74,15 @@ export default function Login() {
               <div className="form__actions">
                 <label className="form__remember">
                   <input
-                    className="form__checkbox"
-                    id="remember"
-                    type="checkbox"
-                    checked={form.remember}
-                    onChange={handleChange}
+                      className="form__checkbox"
+                      id="remember"
+                      type="checkbox"
+                      checked={form.remember}
+                      onChange={handleChange}
                   />
                   <span className="form__remember-label">Remember me</span>
                 </label>
-                <a className="form__forgot" href="#">Forgot password?</a>
+                <a href="#" className="form__forgot">Forgot password?</a>
               </div>
 
               {/* Submit Button */}
@@ -86,32 +91,22 @@ export default function Login() {
               </button>
             </form>
 
+            {/* Demo Login Button */}
+            <button className="form__demo-btn" onClick={handleDemoLogin}>
+              Login without authentication (Demo)
+            </button>
+
             {/* Footer Link */}
             <div className="card__footer">
               <p>
                 Don't have an account?{" "}
-                <a className="card__signup-link" href="/signup">Sign up</a>
+                <Link to="/signup" className="card__signup-link">
+                  Sign up
+                </Link>
               </p>
             </div>
           </div>
-
-          {/* Trust Badge */}
-          <div className="trust-badge">
-            <span
-              className="trust-badge__icon material-symbols-outlined"
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              verified_user
-            </span>
-            <p className="trust-badge__text">
-              Enterprise-grade security &amp; AES-256 encryption
-            </p>
-          </div>
         </div>
       </main>
-
-    
-
-    </>
   );
 }

@@ -1,10 +1,5 @@
-/* ============================================================
-   RetainAI — Global Styles
-   ============================================================ */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap");
 
-/* ---------- CSS Variables ---------- */
+
 :root {
   --color-primary:            #3525cd;
   --color-primary-container:  #4f46e5;
@@ -79,9 +74,7 @@ button {
   flex-direction: column;
 }
 
-/* ============================================================
-   NAVBAR
-   ============================================================ */
+
 .navbar {
   position: fixed;
   top: 0;
@@ -148,9 +141,7 @@ button {
   gap: 16px;
 }
 
-/* ============================================================
-   SHARED BUTTONS
-   ============================================================ */
+
 .btn-primary {
   background: var(--color-primary);
   color: var(--color-on-primary);
@@ -218,9 +209,7 @@ button {
 .btn-outline-white:hover  { background: rgba(255,255,255,0.1); }
 .btn-outline-white:active { transform: scale(0.97); }
 
-/* ============================================================
-   MAIN
-   ============================================================ */
+
 .main-content {
   padding-top: 80px;
   flex: 1;
@@ -232,12 +221,9 @@ button {
   padding: 0 48px;
 }
 
-/* ============================================================
-   HERO SECTION
-   ============================================================ */
+
 .hero-section {
-  background: radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.05) 0%, #f8f9ff 100%);
-  padding: 96px 0;
+  background: radial-gradient(circle at center, rgba(79, 70, 229, 0.08), transparent 70%);  padding: 96px 0;
   position: relative;
   overflow: hidden;
 }
@@ -382,9 +368,7 @@ button {
   width: 100%;
 }
 
-/* ============================================================
-   FEATURES SECTION
-   ============================================================ */
+
 .features-section {
   background: #ffffff;
   padding: 96px 0;
@@ -475,9 +459,7 @@ button {
   color: var(--color-on-surface-variant);
 }
 
-/* ============================================================
-   HOW IT WORKS SECTION
-   ============================================================ */
+
 .how-section {
   background: #ffffff;
   padding: 96px 0;
@@ -490,7 +472,6 @@ button {
   align-items: center;
 }
 
-/* How Visual */
 .how-visual {
   position: relative;
 }
@@ -605,9 +586,7 @@ button {
   color: var(--color-on-surface-variant);
 }
 
-/* ============================================================
-   CTA SECTION
-   ============================================================ */
+
 .cta-section {
   padding: 96px 0;
 }
@@ -683,9 +662,6 @@ button {
   color: #a5b4fc;
 }
 
-/* ============================================================
-   FOOTER
-   ============================================================ */
 .footer {
   background: #f8fafc;
   border-top: 1px solid #e2e8f0;
@@ -761,9 +737,7 @@ button {
   font-size: 18px;
 }
 
-/* ============================================================
-   RESPONSIVE — Tablet & Mobile
-   ============================================================ */
+
 @media (max-width: 1024px) {
   .hero-inner,
   .how-grid {
