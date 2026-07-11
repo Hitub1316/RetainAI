@@ -38,6 +38,8 @@ services:
       - "5000:5000"
     depends_on:
       - backend
+    env_file:
+      - ./agent/.env
 
   mysql:
     image: mysql:8.0

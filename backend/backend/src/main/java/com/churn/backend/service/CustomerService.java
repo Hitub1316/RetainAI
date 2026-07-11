@@ -100,8 +100,8 @@ public class CustomerService {
     }
 
     // CSV Upload
-    public void saveCSV(MultipartFile file) {
-
+    public int saveCSV(MultipartFile file) throws Exception {
+        int count = 0;
         try (
                 BufferedReader reader = new BufferedReader(
                         new InputStreamReader(file.getInputStream()));
@@ -126,15 +126,12 @@ public class CustomerService {
                 customer.setContract(Integer.parseInt(record.get("contract")));
                 customer.setInternetService(Integer.parseInt(record.get("internetService")));
                 customer.setPaymentMethod(Integer.parseInt(record.get("paymentMethod")));
-                customer.setPrediction(0);
-                customer.setProbability(0.0);
-                customer.setRiskLevel("UNKNOWN");
-
-                repository.save(customer);
+                
+                // Call ML pipeline which also saves the customer
+                getMLPrediction(customer);
+                count++;
             }
-
-        } catch (Exception e) {
-            e.printStackTrace();
         }
+        return count;
     }
 }
