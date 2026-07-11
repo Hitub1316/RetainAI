@@ -25,7 +25,7 @@ public class CustomerService {
     @Autowired
     private CustomerRepository repository;
 
-    private final String AGENT_URL = "http://localhost:5000/analyze";
+    private final String AGENT_URL = "http://agent:5000/analyze";
 
     // ML + Save
     public Map<String, Object> getMLPrediction(Customer customer) {
