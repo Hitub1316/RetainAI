@@ -116,20 +116,42 @@ public class CustomerService {
 
                 Customer customer = new Customer();
 
-                customer.setName(record.get("name"));
-                customer.setEmail(record.get("email"));
-                customer.setCompany(record.get("company"));
-                customer.setPhone(record.get("phone"));
-                customer.setTenure(Integer.parseInt(record.get("tenure")));
-                customer.setMonthlyCharges(Double.parseDouble(record.get("monthlyCharges")));
-                customer.setTotalCharges(Double.parseDouble(record.get("totalCharges")));
-                customer.setContract(Integer.parseInt(record.get("contract")));
-                customer.setInternetService(Integer.parseInt(record.get("internetService")));
-                customer.setPaymentMethod(Integer.parseInt(record.get("paymentMethod")));
+                if (record.isMapped("customerID")) {
+                    // Mapping telecom.csv raw dataset
+                    customer.setName("Customer " + record.get("customerID"));
+                    customer.setEmail(record.get("customerID") + "@example.com");
+                    customer.setCompany("Telecom");
+                    customer.setPhone("N/A");
+                    customer.setTenure(Integer.parseInt(record.get("tenure")));
+                    customer.setMonthlyCharges(Double.parseDouble(record.get("MonthlyCharges")));
+                    try {
+                        customer.setTotalCharges(Double.parseDouble(record.get("TotalCharges")));
+                    } catch (NumberFormatException e) {
+                        customer.setTotalCharges(0.0);
+                    }
+                    customer.setContract(record.get("Contract").equals("Month-to-month") ? 0 : 1);
+                    customer.setInternetService(record.get("InternetService").equals("No") ? 0 : 1);
+                    customer.setPaymentMethod(0);
+                } else {
+                    // Original format
+                    customer.setName(record.get("name"));
+                    customer.setEmail(record.get("email"));
+                    customer.setCompany(record.get("company"));
+                    customer.setPhone(record.get("phone"));
+                    customer.setTenure(Integer.parseInt(record.get("tenure")));
+                    customer.setMonthlyCharges(Double.parseDouble(record.get("monthlyCharges")));
+                    customer.setTotalCharges(Double.parseDouble(record.get("totalCharges")));
+                    customer.setContract(Integer.parseInt(record.get("contract")));
+                    customer.setInternetService(Integer.parseInt(record.get("internetService")));
+                    customer.setPaymentMethod(Integer.parseInt(record.get("paymentMethod")));
+                }
                 
                 // Call ML pipeline which also saves the customer
                 getMLPrediction(customer);
                 count++;
+                
+                // Limit to 50 for demo purposes to avoid hanging the browser with 7000 HTTP requests
+                if (count >= 50) break;
             }
         }
         return count;
