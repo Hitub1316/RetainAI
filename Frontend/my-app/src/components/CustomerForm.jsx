@@ -46,7 +46,7 @@ export default function CustomerForm({ refreshCustomers }) {
       };
 
       await axios.post(
-        "http://localhost:8080/customers/ml-predict",
+        "/customers/ml-predict",
         customerData
       );
 

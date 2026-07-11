@@ -40,7 +40,7 @@ export default function Dashboard() {
   const fetchCustomers = () => {
 
     axios
-        .get("http://localhost:8080/customers")
+        .get("/customers")
         .then((response) => {
           setCustomers(response.data);
         })
@@ -53,7 +53,7 @@ export default function Dashboard() {
   const fetchStats = () => {
 
     axios
-        .get("http://localhost:8080/customers/stats")
+        .get("/customers/stats")
         .then((response) => {
 
           setStats(response.data);

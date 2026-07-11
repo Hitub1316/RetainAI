@@ -4,7 +4,7 @@ function Dashboard() {
   const [stats, setStats] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:8080/customers/stats")
+    fetch("/customers/stats")
       .then((res) => res.json())
       .then((data) => setStats(data))
       .catch((err) => console.error(err));
