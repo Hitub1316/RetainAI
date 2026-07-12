@@ -9,6 +9,8 @@ node_modules/
 # Env
 Frontend/my-app/.env
 
+agent/.env
+
 # Models
 *.pkl
 
